@@ -1,7 +1,10 @@
 const starterL = 16;
 const starterH = 16;
-const mainContainer = document.querySelector("#mainContainer")
 
+const mainEtchContainer = document.querySelector("#mainEtchContainer")
+
+const mainEtchHeight = 800;
+const mainEtchWidth = 800;
 // mainContainer.textContent = "Hello"
 
 // box-sizing: border-box;
@@ -18,21 +21,26 @@ function createElementDiv() {
     return div;
 }
 
-function setDivColor(div, color) {
+function setDivColor(div,color) {
     div.style.backgroundColor = color;
 }
-function setDivWidth(div, width) {
+function setDivWidth(div,width) {
     div.style.width = width;
 }
-function setDivHeight(div, height) {
+function setDivHeight(div,height) {
     div.style.height = height;
 }
-
-function createOneDiv() {
+function setDivBorder(div,border) {
+    div.style.border = border;
+}
+function createOneDiv(height,width,color) {
     let div = createElementDiv();
-    setDivColor(div,"black")
-    setDivHeight(div,"100px")
-    setDivWidth(div,"100px")
+    let heightPX = height.toString() + "px"
+    let widthPX = width.toString() + "px"
+    setDivColor(div,color)
+    setDivHeight(div,heightPX)
+    setDivWidth(div,widthPX)
+    setDivBorder(div,"0px solid black")
     return div;
 }
 function createAllDiv(l,h) {
@@ -44,7 +52,21 @@ function createAllDiv(l,h) {
     }
 }
 
-let maDiv = createOneDiv();
-setDivColor(maDiv,"red")
-maDiv.textContent = "hiMiniDiv"
-mainContainer.appendChild(maDiv)
+function initialGrid() {
+    
+    let width = mainEtchWidth / starterL;
+    let height = mainEtchHeight / starterH;
+    let div;
+    let color = "white"
+    for (i=0;i<starterL;i++) {
+        for (j=0;j<starterH;j++) {
+            div = createOneDiv(width,height,color)
+            mainEtchContainer.appendChild(div)
+        }
+    }
+}
+let maDiv = createOneDiv(100,100,"red");
+// setDivColor(maDiv,"red")
+// maDiv.textContent = "hiMiniDiv"
+// mainEtchContainer.appendChild(maDiv)
+initialGrid()

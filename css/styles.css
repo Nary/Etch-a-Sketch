@@ -1,0 +1,27 @@
+body {
+  height: 100vh;
+  margin: 0;
+  
+  box-sizing: border-box;
+}
+
+#mainDiv {
+    display: flex;
+    flex-direction: column;
+    /* background-color: pink; */
+    /* align-content: center; */
+    align-items: center;
+    gap:10px;
+    padding-top: 10px;
+    /* justify-content: center; */
+    height: 100%;
+}
+#mainEtchContainer {
+    display: flex;
+    width: 800px;
+    height: 800px;
+    border: 5px solid;
+    border-radius: 5px;
+    background-color: white;
+    flex-wrap: wrap;
+}
