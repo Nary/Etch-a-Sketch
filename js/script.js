@@ -1,6 +1,6 @@
 const starterL = 16;
 const starterH = 16;
-
+const GRAY = "gray"
 const mainEtchContainer = document.querySelector("#mainEtchContainer")
 
 const mainEtchHeight = 800;
@@ -30,10 +30,12 @@ function setDivWidth(div,width) {
 function setDivHeight(div,height) {
     div.style.height = height;
 }
+
 function setDivBorder(div,border) {
     div.style.boxSizing = "border-box";
     div.style.border = border;
 }
+
 function createOneDiv(height,width,color) {
     let div = createElementDiv();
     let heightPX = height.toString() + "px"
@@ -41,7 +43,7 @@ function createOneDiv(height,width,color) {
     setDivColor(div,color)
     setDivHeight(div,heightPX)
     setDivWidth(div,widthPX)
-    setDivBorder(div,"1px solid black")
+    setDivBorder(div,"2px solid black")
     return div;
 }
 function createAllDiv(l,h) {
@@ -53,6 +55,9 @@ function createAllDiv(l,h) {
     }
 }
 
+function hoverListener(ev) {
+    ev.target.style.backgroundColor = GRAY;
+}
 function initialGrid() {
     
     let width = mainEtchWidth / starterL;
@@ -62,6 +67,7 @@ function initialGrid() {
     for (i=0;i<starterL;i++) {
         for (j=0;j<starterH;j++) {
             div = createOneDiv(width,height,color)
+            div.addEventListener("mouseleave",hoverListener)
             mainEtchContainer.appendChild(div)
         }
     }
