@@ -31,6 +31,7 @@ function setDivHeight(div,height) {
     div.style.height = height;
 }
 function setDivBorder(div,border) {
+    div.style.boxSizing = "border-box";
     div.style.border = border;
 }
 function createOneDiv(height,width,color) {
@@ -40,7 +41,7 @@ function createOneDiv(height,width,color) {
     setDivColor(div,color)
     setDivHeight(div,heightPX)
     setDivWidth(div,widthPX)
-    setDivBorder(div,"0px solid black")
+    setDivBorder(div,"1px solid black")
     return div;
 }
 function createAllDiv(l,h) {
